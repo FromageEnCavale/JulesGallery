@@ -97,7 +97,11 @@ main {
     width: 100%;
 }
 
-.content img {
+.imgContainer {
+    display: flex;
+}
+
+.imgContainer img {
     max-height: 85vh;
 }
 
@@ -109,6 +113,9 @@ main {
 .imgInfo {
     position: sticky;
     top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
     color: var(--accent);
 }
 

@@ -103,6 +103,10 @@ function createImageElement(src, name, device, camera, country, focallength, ape
 
     content.classList.add('content');
 
+    const imgContainer = document.createElement('div');
+
+    imgContainer.classList.add('imgContainer');
+
     const img = document.createElement('img');
 
     img.src = src;
@@ -163,7 +167,9 @@ function createImageElement(src, name, device, camera, country, focallength, ape
 
     imgEv.textContent = ev;
 
-    content.appendChild(img);
+    content.appendChild(imgContainer);
+
+    imgContainer.appendChild(img);
 
     content.appendChild(imgInfoContainer);
 
