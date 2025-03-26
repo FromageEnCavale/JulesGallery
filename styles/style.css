@@ -44,8 +44,8 @@ input, textarea, select, button {
 :root {
     --background-light: #FFFFFF;
     --background-dark: #0A0A0A;
-    --accent-light: #F5F5F5;
-    --accent-dark: #141414;
+    --accent-light: #858585;
+    --accent-dark: #858585;
     --text-light: #0A0A0A;
     --text-dark: #FFFFFF;
 }
@@ -55,14 +55,16 @@ input, textarea, select, button {
 html, body {
     width: 100%;
     height: 100%;
+    scrollbar-width: none;
 }
 
 body {
     color: var(--text);
     background-color: var(--background);
     font-family: system-ui, sans-serif;
+    font-family: monospace;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .noSelect {
@@ -75,56 +77,60 @@ body {
 /* ----- HEADER ----- */
 
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: fit-content;
-    padding: 20px 24px;
+
 }
 
 /* ----- MAIN ----- */
 
 main {
-
-}
-
-.container {
     display: flex;
-    width: 100vw;
-    height: 100vh;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    height: fit-content;
+    padding: 10px 24px;
 }
 
-.sliderBloc {
+.content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    scroll-snap-align: center;
-    flex-shrink: 0;
+    flex-direction: row;
+    width: 100%;
 }
 
-.imgContainer {
-    display: flex;
-}
-
-.imgContainer img {
+.content img {
     max-height: 85vh;
 }
 
-.lazy {
-    opacity: 0;
+.imgInfoContainer {
+    position: relative;
+    padding: 0 14px;
 }
 
-.lazy.loaded {
-    opacity: 1;
+.imgInfo {
+    position: sticky;
+    top: 10px;
+    color: var(--accent);
+}
+
+.name {
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.device {
+    text-transform: uppercase;
+}
+
+.camera {
+    text-transform: uppercase;
+}
+
+.country {
+    padding-bottom: 10px;
+    text-transform: uppercase;
 }
 
 /* ----- FOOTER ----- */
@@ -135,22 +141,10 @@ footer {
 
 /* ----- MEDIA QUERY ----- */
 
-@media (max-width: 1000px) {
+@media (max-width: 865px) {
 
-    header {
-
-    }
-
-    main {
-
-    }
-
-    .imgContainer img {
-        max-width: 85vw;
-    }
-
-    footer {
-
+    body {
+        display: none;
     }
 
 }
