@@ -67,7 +67,7 @@ body {
     font-size: 14px;
 }
 
-.noSelect {
+.no-select {
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -95,22 +95,25 @@ main {
     display: flex;
     flex-direction: row;
     width: 100%;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: scaleUp 1s forwards;
 }
 
-.imgContainer {
+.img-container {
     display: flex;
 }
 
-.imgContainer img {
+.img-container img {
     max-height: 85vh;
 }
 
-.imgInfoContainer {
+.img-info-container {
     position: relative;
-    padding: 0 14px;
+    padding: 0 14px 14px 14px;
 }
 
-.imgInfo {
+.img-info {
     position: sticky;
     top: 10px;
     display: flex;
@@ -143,6 +146,17 @@ main {
 /* ----- FOOTER ----- */
 
 footer {
+
+}
+
+/* ----- ANIMATION ----- */
+
+@keyframes scaleUp {
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 
 }
 
