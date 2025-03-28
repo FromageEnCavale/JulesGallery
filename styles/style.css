@@ -53,18 +53,21 @@ input, textarea, select, button {
 /* ----- BODY ----- */
 
 html, body {
-    width: 100%;
-    height: 100%;
     scrollbar-width: none;
 }
 
 body {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: fit-content;
+    padding: 10px 0;
     color: var(--text);
     background-color: var(--background);
     font-family: system-ui, sans-serif;
     font-family: monospace;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .no-select {
@@ -82,65 +85,59 @@ header {
 
 /* ----- MAIN ----- */
 
-main {
+main  {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 100%;
     height: fit-content;
-    padding: 10px 24px;
 }
 
-.content {
+.container {
     display: flex;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     opacity: 0;
     transform: scale(0.95);
     animation: scaleUp 1s forwards;
 }
 
-.img-container {
+img {
     display: flex;
+    max-width: 85%;
 }
 
-.img-container img {
-    max-height: 85vh;
-}
-
-.img-info-container {
-    position: relative;
-    padding: 0 14px 14px 14px;
-}
-
-.img-info {
-    position: sticky;
-    top: 10px;
+.img-info-data-container {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    justify-content: space-between;
+    width: 85%;
+    padding: 10px 0;
     color: var(--accent);
 }
 
-.name {
-    padding-bottom: 10px;
+.img-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     text-transform: uppercase;
+}
+
+.name {
     color: var(--text);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
 }
 
-.device {
-    text-transform: uppercase;
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
-.camera {
-    text-transform: uppercase;
-}
-
-.country {
-    padding-bottom: 10px;
-    text-transform: uppercase;
+.img-data {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
 /* ----- FOOTER ----- */
@@ -162,18 +159,35 @@ footer {
 
 /* ----- MEDIA QUERY ----- */
 
-@media (max-width: 865px) {
+@media (min-width: 850px) {
 
     body {
-        display: none;
+        justify-content: start;
+        padding: 10px 24px;
+        font-size: 14px;
     }
 
-}
+    .container {
+        position: relative;
+        flex-direction: row;
+        align-items: start;
+    }
 
-@media (hover: hover) and (pointer: fine) {
+    img {
+        max-width: none;
+        max-height: 85vh;
+    }
 
-    .exemple:hover {
-        background-color: var(--accent);
+    .img-info-data-container {
+        position: sticky;
+        top: 10px;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 14px;
+    }
+
+    .name {
+        font-size: 16px;
     }
 
 }

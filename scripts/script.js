@@ -50,13 +50,9 @@ function loadImageAsPromise(imageInfo, retryCount = 0) {
 
 function createImageElement(imageInfo) {
 
-    const content = document.createElement('div');
+    const container = document.createElement('div');
 
-    content.classList.add('content');
-
-    const imgContainer = document.createElement('div');
-
-    imgContainer.classList.add('img-container');
+    container.classList.add('container');
 
     const img = document.createElement('img');
 
@@ -66,27 +62,61 @@ function createImageElement(imageInfo) {
 
     img.draggable = false;
 
-    content.appendChild(imgContainer);
+    container.appendChild(img);
 
-    imgContainer.appendChild(img);
+    const imgInfoDataContainer = document.createElement('div');
 
-    const imgInfoContainer = document.createElement('div');
+    imgInfoDataContainer.classList.add('img-info-data-container');
 
-    imgInfoContainer.classList.add('img-info-container');
+    imgInfoDataContainer.classList.add('no-select');
 
     const imgInfo = document.createElement('div');
 
     imgInfo.classList.add('img-info');
 
-    const infoFields = [
+    const name = document.createElement('div');
 
-        { className: 'name', text: imageInfo.name },
+    name.classList.add('name');
+
+    name.textContent = imageInfo.name;
+
+    imgInfo.appendChild(name);
+
+    const info = document.createElement('div');
+
+    info.classList.add('info');
+
+    const infoFields = [
 
         { className: 'device', text: imageInfo.device },
 
         { className: 'camera', text: imageInfo.camera },
 
-        { className: 'country', text: imageInfo.country },
+        { className: 'country', text: imageInfo.country }
+
+    ];
+
+    infoFields.forEach(field => {
+
+        const element = document.createElement('div');
+
+        element.classList.add(field.className);
+
+        element.textContent = field.text;
+
+        info.appendChild(element);
+
+    });
+
+    imgInfo.appendChild(info);
+
+    imgInfoDataContainer.appendChild(imgInfo);
+
+    const imgData = document.createElement('div');
+
+    imgData.classList.add('img-data');
+
+    const dataFields = [
 
         { className: 'focal-length', text: imageInfo.focallength },
 
@@ -100,7 +130,7 @@ function createImageElement(imageInfo) {
 
     ];
 
-    infoFields.forEach(field => {
+    dataFields.forEach(field => {
 
         const element = document.createElement('div');
 
@@ -108,15 +138,19 @@ function createImageElement(imageInfo) {
 
         element.textContent = field.text;
 
-        imgInfo.appendChild(element);
+        imgData.appendChild(element);
 
     });
 
-    imgInfoContainer.appendChild(imgInfo);
+    imgInfoDataContainer.appendChild(imgData);
 
-    content.appendChild(imgInfoContainer);
+    const emptyDiv = document.createElement('div');
 
-    return content;
+    imgInfoDataContainer.appendChild(emptyDiv);
+
+    container.appendChild(imgInfoDataContainer);
+
+    return container;
 
 }
 
