@@ -160,7 +160,43 @@ footer {
 
 /* ----- MEDIA QUERY ----- */
 
-@media (min-width: 850px) {
+@media (min-width: 600px) {
+
+    img {
+        max-width: 75%;
+    }
+
+    .img-info-data-container {
+        width: 75%;
+    }
+
+}
+
+@media (min-width: 700px) {
+
+    img {
+        max-width: 65%;
+    }
+
+    .img-info-data-container {
+        width: 65%;
+    }
+
+}
+
+@media (min-width: 800px) {
+
+    img {
+        max-width: 55%;
+    }
+
+    .img-info-data-container {
+        width: 55%;
+    }
+
+}
+
+@media (min-width: 900px) {
 
     body {
         justify-content: start;
